@@ -42,6 +42,14 @@ GitHub Actions workflow automatically runs simple test queries to ensure the dat
 
 ---
 
+## Contact
+
+Vinaykumar Yadav
+Email: yadavvinay77@gmail.com
+GitHub: https://github.com/yadavvinay77/vinay-sakila-sql
+
+---
+
 ## License
 
-MIT
+This project is open-source and free to use under the MIT License.
