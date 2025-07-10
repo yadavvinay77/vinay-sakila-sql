@@ -1,0 +1,29 @@
+# Ignore VS Code settings folder
+.vscode/
+
+# Ignore MySQL data files (if any generated locally)
+*.err
+*.pid
+*.log
+*.sql~   # temporary backup SQL files
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Python virtual envs (if any)
+venv/
+env/
+__pycache__/
+
+# Ignore Node modules (if any JS/Node tools used)
+node_modules/
+
+# Ignore GitHub Actions workflow caches (optional)
+.github/workflows/.cache/
+
+# Ignore compiled binaries or temp files (if any)
+*.exe
+*.dll
+*.so
+*.out

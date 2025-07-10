@@ -1,0 +1,39 @@
+# GitHub Actions workflow will go here
+name: Run SQL Queries on Sakila
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: sakila
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Wait for MySQL to be ready
+        run: sleep 30
+
+      - name: Install MySQL client
+        run: sudo apt-get install -y default-mysql-client
+
+      - name: Load Schema
+        run: mysql -h 127.0.0.1 -P 3306 -u root -proot sakila < sql/sakila-schema.sql
+
+      - name: Load Data
+        run: mysql -h 127.0.0.1 -P 3306 -u root -proot sakila < sql/sakila-data.sql
+
+      - name: Run Test Query
+        run: mysql -h 127.0.0.1 -P 3306 -u root -proot sakila -e "SELECT COUNT(*) FROM actor;"
