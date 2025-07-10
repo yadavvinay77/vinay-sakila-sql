@@ -1,37 +1,42 @@
 
 # Sakila SQL Project
 
-This repository contains the MySQL Sakila sample database with:
-
-- Schema and data SQL scripts
-- Sample queries for practice and demonstration
-- CI/CD pipeline to automatically run SQL tests on GitHub Actions
-- Setup instructions for running locally with VS Code and MySQL
+This project contains a collection of SQL queries and tests built around the **Sakila** sample database. It is designed for learning and demonstrating SQL skills with a real-world movie rental dataset.
 
 ---
 
-## Setup
+## Project Overview
 
-1. Install MySQL Community Server: https://dev.mysql.com/downloads/installer/
-2. Import schema and data:
-
-```bash
-mysql -u root -p < sql/sakila-schema.sql
-mysql -u root -p < sql/sakila-data.sql
-```
-
-3. Open VS Code and install SQLTools extension  
-4. Create a connection to your local MySQL (`root@localhost:3306`) with default database `sakila`
+- **Dataset**: Sakila is a popular sample database provided by MySQL, modeling a DVD rental store.
+- **Purpose**: This project contains curated SQL queries showcasing common and advanced querying techniques.
+- **Tech Stack**: MySQL, GitHub Actions for CI/CD testing, and VSCode for development.
+- **Use Case**: Perfect for practicing SQL, portfolio demonstrations, or integration into CI/CD workflows.
 
 ---
 
-## Running Queries
+## Repository Structure
 
-Sample query:
-
-```sql
-USE sakila;
-SELECT * FROM actor LIMIT 10;
+```plaintext
+sql_proj/
+│
+├── .github/
+│   └── workflows/
+│       └── test-sql.yml        # GitHub Action to run SQL tests on Sakila DB
+├── .vscode/
+│   └── settings.json           # VSCode workspace settings
+├── sql/
+│   ├── actor_queries.sql       # Queries related to actors
+│   ├── film_queries.sql        # Queries related to films
+│   ├── staff_queries.sql       # Queries related to staff members
+│   ├── payment_queries.sql     # Queries related to payments
+│   └── rental_queries.sql      # Queries related to rentals
+├── tests/
+│   └── test_queries.sql        # Test queries to validate database contents
+├── Chinook_Sqlite.sqlite       # Sample SQLite database (if applicable)
+├── sakila-schema.sql           # Schema definition for Sakila DB
+├── sakila-data.sql             # Data import script for Sakila DB
+├── README.md                   # This file
+└── .gitignore                  # Git ignore rules
 ```
 
 ---
@@ -42,14 +47,6 @@ GitHub Actions workflow automatically runs simple test queries to ensure the dat
 
 ---
 
-## Contact
-
-Vinaykumar Yadav
-Email: yadavvinay77@gmail.com
-GitHub: https://github.com/yadavvinay77/vinay-sakila-sql
-
----
-
 ## License
 
-This project is open-source and free to use under the MIT License.
+MIT
